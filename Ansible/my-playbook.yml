@@ -23,3 +23,14 @@
 
     - name: install dvwa container
       docker_container:
+        name: dvwa
+        image: cyberxsecurity/dvwa
+        state: started
+        restart_policy: always
+        published_ports: 80:80
+
+    - name: Enable docker service
+      systemd:
+        name: docker
+        enabled: yes
+
